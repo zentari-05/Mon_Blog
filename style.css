@@ -1,43 +1,102 @@
-/* Pour pouvoir utiliser une hauteur (height) ou une hauteur minimale
-   (min-height) sur un bloc, il faut que son parent direct ait lui-même une
-   hauteur déterminée (donc toute valeur de height sauf "auto": hauteur en
-   pixels, em, autres unités...).
-   Si la hauteur du parent est en pourcentage, elle se réfère alors à la
-   hauteur du «grand-père», et ainsi de suite.
-   Pour pouvoir utiliser un "min-height: 100%" sur div#global, il nous faut:
-   - un parent (body) en "height: 100%";
-   - le parent de body également en "height: 100%". */
 html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    color: #bfbfbf;
-    background: black;
-    font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
+    color: #2c3e50;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
 }
 
 h1 {
-    color: white;
+    color: #2c3e50;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .titreBillet {
-    margin-bottom : 0px;
+    margin-bottom: 0px;
+    color: #34495e;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
 }
 
 #global {
-    min-height: 100%;  /* Voir commentaire sur html et body plus haut */
-    background: #333534;
-    width: 70%;
-    margin: auto;	/* Permet de centrer la div */
+    min-height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
     text-align: justify;
-    padding: 5px 20px;
+    padding: 30px 40px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #contenu {
-    margin-bottom : 30px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 #titreBlog, #piedBlog {
     text-align: center;
+    color: white;
+}
+
+#titreBlog h1 {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#piedBlog {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(44, 62, 80, 0.9);
+    color: #ecf0f1;
+    border-radius: 8px;
+}
+
+/* Effets de hover pour les titres */
+.titreBillet:hover {
+    color: #e74c3c;
+    transition: color 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #global {
+        width: 95%;
+        padding: 20px 15px;
+    }
+    
+    body {
+        background: #667eea;
+        padding: 10px;
+    }
+}
+
+/* Animation subtile */
+#global {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
